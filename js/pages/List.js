@@ -109,9 +109,6 @@ export default {
                         Have either source audio or clicks/taps in the video. Edited audio only does not count
                     </p>
                     <p>
-                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exempt from this
-                    </p>
-                    <p>
                         The recording must also show the player hit the endwall, or the completion will be invalidated.
                     </p>
                     <p>
@@ -120,9 +117,12 @@ export default {
                     <p>
                         Do not use easy modes, only a record of the unmodified level qualifies
                     </p>
-                    <p>
-                        Once a level falls onto the Legacy List, we accept records for it for 24 hours after it falls off, then afterwards we never accept records for said level
-                    </p>
+                   <p>
+                        You need to have a cheat indicator if you have anything like MegaHack installed
+                   </p>
+                   <p>
+                        All levels need to be legitimately verified with a verification video or a witness in VC or irl to be placed.
+                   </p>
                 </div>
             </div>
         </main>
