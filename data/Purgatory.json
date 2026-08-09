@@ -1,0 +1,17 @@
+ "id": 136419521,
+    "name": "Purgatory",
+    "author": "SUTBBY",
+    "creators": ["STUBBY"],
+    "verifier": "STUBBY",
+    "verification": "https://youtu.be/KOisatTog7s?si=c4OGIRA2dFwTwY8P",
+    "percentToQualify": 56,
+    "password": "Free to Copy",
+    "records": [
+        {
+            "user": "STUBBY",
+            "link": "https://youtu.be/KOisatTog7s?si=c4OGIRA2dFwTwY8P",
+            "percent": 100,
+            "hz": 240
+        }
+    ]
+}
