@@ -1,5 +1,5 @@
 {
-"id": 134506692,
+    "id": 134506692,
     "name": "Acidic Amalgamation",
     "author": "ivovan7",
     "creators": ["ivovan7"],
@@ -13,6 +13,6 @@
             "link": "https://youtu.be/ep_ERgfGwbk?si=L45zcENGH7BQ5Ye6",
             "percent": 100,
             "hz": 480
-                }
-            ]
         }
+    ]
+}
