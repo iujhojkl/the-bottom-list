@@ -1,0 +1,20 @@
+{
+    "id": 137974957,
+    "name": "Budgetscapes",
+    "author": "Herbert39",
+    "creators": ["Herbert39"],
+    "verifier": "cosmical",
+    "verification": "https://youtu.be/LWWxHGqovsg?si=Fy3ph0UmoA9BF7ip",
+    "percentToQualify": "100",
+    "password": "Free to Copy",
+    "records": [
+        {
+            "user": "Ferret90",
+            "link": "https://youtu.be/FfNFP5YVCDE?si=1QRkyV0dtTZ4PVFF",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+        }
+    ]
+}
