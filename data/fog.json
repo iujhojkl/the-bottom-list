@@ -1,0 +1,30 @@
+{
+    "id": 125262754,
+    "name": "the fog",
+    "author": "STUBBY",
+    "creators": ["STUBBY"],
+    "verifier": "STUBBY",
+    "verification": "https://youtu.be/7-s1y94Z7GU?si=SWJ8DXj2Qn_xsFvh",
+    "percentToQualify": "100",
+    "password": "Free to Copy",
+    "records": [
+        {
+            "user": "CoolSmile64",
+            "link": "https://youtu.be/6F80aKyS1-0?si=FziIZKrFlJ6v_2t1",
+            "percent": 100,
+            "hz": 480
+        },
+        {
+            "user": "ivovan7",
+            "link": "https://youtu.be/YuzpNxbkQDY?si=f-GQ7H7Dv6ihqnWQ",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+        "user": "Ferret90",
+        "link": "https://youtu.be/aFznhhk8jrE?si=xEcK24GRVYtDYFJX",
+        "percent": 100,
+        "hz": 240
+        }
+    ]
+}
