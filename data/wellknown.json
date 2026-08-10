@@ -1,0 +1,24 @@
+{
+    "id": 124482353,
+    "name": "well known",
+    "author": "ivovan7",
+    "creators": ["ivovan7"],
+    "verifier": "ivovan7",
+    "verification": "https://youtu.be/NXe8j6Aeo0g?si=LbEIaypEGwXDTOHg",
+    "percentToQualify": "100",
+    "password": "Free to Copy",
+    "records": [
+        {
+            "user": "Ferret90",
+            "link": "https://youtu.be/XbUql2awl30",
+            "percent": 100,
+            "hz": 240
+        },
+        {
+            "user": "SCCA",
+            "link": "https://youtu.be/6aLwM77I3Bs?si=iDXl-s9ISzlairxo",
+            "percent": 100,
+            "hz": 120
+        }
+    ]
+}
