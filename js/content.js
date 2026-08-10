@@ -5,6 +5,15 @@ import { round, score } from './score.js';
  */
 const dir = '/data';
 
+/**
+ * Helper to safely format creator/author lists as clean text string
+ */
+export function formatAuthors(authors) {
+    if (!authors) return 'Unknown';
+    if (Array.isArray(authors)) return authors.join(', ');
+    return String(authors);
+}
+
 export async function fetchList() {
     const listResult = await fetch(`${dir}/_list.json`);
     try {
@@ -18,6 +27,10 @@ export async function fetchList() {
                         {
                             ...level,
                             path,
+                            // Ensure creators are properly stored/formatted
+                            author: formatAuthors(level.author || level.creators),
+                            verifier: formatAuthors(level.verifier),
+                            publisher: formatAuthors(level.publisher),
                             records: (level.records || []).sort(
                                 (a, b) => b.percent - a.percent,
                             ),
@@ -60,8 +73,12 @@ export async function fetchLeaderboard() {
             return;
         }
 
-        // Verification - Safe handle if verifier is missing or null
-        const verifierName = level.verifier || 'Unknown Verifier';
+        // Verification - Safe handle if verifier is missing, array, or null
+        const rawVerifier = Array.isArray(level.verifier) 
+            ? level.verifier[0] 
+            : level.verifier;
+            
+        const verifierName = rawVerifier || 'Unknown Verifier';
         const verifier = Object.keys(scoreMap).find(
             (u) => u.toLowerCase() === verifierName.toLowerCase(),
         ) || verifierName;
