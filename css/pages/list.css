@@ -1,8 +1,8 @@
 :root {
-    --color-background: #ffffff;
-    --color-on-background: #1c1b1f;
-    --color-background-hover: #f4f4f5;
-    --color-on-background-hover: #1c1b1f;
+    --color-background: #121214;
+    --color-on-background: #ffffff;
+    --color-background-hover: #27262c;
+    --color-on-background-hover: #ffffff;
     --color-primary: #006D5B;
     --color-primary-disabled: #1f213c;
     --color-on-primary: #ffffff;
@@ -30,8 +30,8 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: var(--color-background);
-    color: var(--color-on-background);
+    background-color: var(--color-background) !important;
+    color: var(--color-on-background) !important;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.5;
 }
@@ -51,16 +51,18 @@ a:hover {
     text-decoration: underline;
 }
 
-img {
+img, svg {
     max-width: 100%;
     height: auto;
 }
 
 header {
-    background: rgba(0, 109, 91, 0.95);
-    color: #ffffff;
+    background-color: #006D5B !important;
+    color: #ffffff !important;
     padding: 0.85rem 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-container {
@@ -71,12 +73,10 @@ header {
     margin: 0 auto;
 }
 
-.nav-container .title {
-    color: #ffffff;
-    text-decoration: none;
-}
-
+.nav-container .title,
 .nav-container .title h1 {
+    color: #ffffff !important;
+    text-decoration: none;
     margin: 0;
     font-size: 1.35rem;
     display: flex;
@@ -88,6 +88,7 @@ header {
     font-size: 0.75rem;
     opacity: 0.75;
     font-weight: normal;
+    color: #ffffff !important;
 }
 
 .nav-container nav.links {
@@ -97,7 +98,7 @@ header {
 }
 
 .nav-container nav.links a {
-    color: #ffffff;
+    color: #ffffff !important;
     font-weight: 600;
     opacity: 0.85;
     text-decoration: none;
@@ -108,6 +109,7 @@ header {
 .nav-container nav.links a.router-link-active {
     opacity: 1;
     text-decoration: underline;
+    color: #ffffff !important;
 }
 
 .nav-container .actions {
@@ -124,8 +126,8 @@ header {
 }
 
 .nav-container .button {
-    background: #ffffff;
-    color: #006D5B;
+    background: #ffffff !important;
+    color: #006D5B !important;
     padding: 0.4rem 0.85rem;
     border-radius: 6px;
     font-weight: 700;
@@ -316,6 +318,7 @@ main.page-list {
     gap: 0.5rem;
 }
 
+.page-list .meta .editors li,
 .page-list .meta .editors .editor-item {
     display: flex !important;
     align-items: center !important;
@@ -325,12 +328,23 @@ main.page-list {
 .page-list .meta .editors img,
 .page-list .meta .editors svg,
 .page-list .meta img,
-.page-list .role-icon,
-.page-list .icon-mobile {
+.page-list .role-icon {
     width: 24px !important;
     height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
     max-width: 24px !important;
     max-height: 24px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+}
+
+.page-list .icon-mobile {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
     object-fit: contain !important;
     display: inline-block !important;
 }
