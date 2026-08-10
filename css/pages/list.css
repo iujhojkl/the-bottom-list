@@ -56,9 +56,13 @@ img, svg {
     height: auto;
 }
 
+header,
+header * {
+    color: #ffffff !important;
+}
+
 header {
     background-color: #006D5B !important;
-    color: #ffffff !important;
     padding: 0.85rem 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -75,7 +79,6 @@ header {
 
 .nav-container .title,
 .nav-container .title h1 {
-    color: #ffffff !important;
     text-decoration: none;
     margin: 0;
     font-size: 1.35rem;
@@ -88,7 +91,6 @@ header {
     font-size: 0.75rem;
     opacity: 0.75;
     font-weight: normal;
-    color: #ffffff !important;
 }
 
 .nav-container nav.links {
@@ -97,7 +99,11 @@ header {
     gap: 1.5rem;
 }
 
-.nav-container nav.links a {
+.nav-container nav.links a,
+.nav-container nav.links a:visited,
+.nav-container nav.links a:link,
+.nav-container nav.links a.router-link-active,
+.nav-container nav.links a.router-link-exact-active {
     color: #ffffff !important;
     font-weight: 600;
     opacity: 0.85;
@@ -105,8 +111,7 @@ header {
     transition: opacity 0.2s;
 }
 
-.nav-container nav.links a:hover,
-.nav-container nav.links a.router-link-active {
+.nav-container nav.links a:hover {
     opacity: 1;
     text-decoration: underline;
     color: #ffffff !important;
@@ -125,9 +130,11 @@ header {
     font-size: 1.1rem;
 }
 
-.nav-container .button {
-    background: #ffffff !important;
-    color: #ffffff !important;
+.nav-container .button,
+.nav-container .button:visited,
+.nav-container .button:link {
+    background-color: #ffffff !important;
+    color: #006D5B !important;
     padding: 0.4rem 0.85rem;
     border-radius: 6px;
     font-weight: 700;
