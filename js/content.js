@@ -1,5 +1,8 @@
 import { round, score } from './score.js';
 
+/**
+ * Path to directory containing `_list.json` and all levels
+ */
 const dir = '/data';
 
 export async function fetchList() {
@@ -57,6 +60,7 @@ export async function fetchLeaderboard() {
             return;
         }
 
+        // Verification - Safe handle if verifier is missing or null
         const verifierName = level.verifier || 'Unknown Verifier';
         const verifier = Object.keys(scoreMap).find(
             (u) => u.toLowerCase() === verifierName.toLowerCase(),
@@ -75,6 +79,7 @@ export async function fetchLeaderboard() {
             link: level.verification || '',
         });
 
+        // Records - Safe handle if record.user is missing or null
         (level.records || []).forEach((record) => {
             if (!record) return;
 
@@ -110,6 +115,7 @@ export async function fetchLeaderboard() {
         });
     });
 
+    // Wrap in extra Object containing the user and total score
     const res = Object.entries(scoreMap).map(([user, scores]) => {
         const { verified, completed, progressed } = scores;
         const total = [verified, completed, progressed]
@@ -123,35 +129,6 @@ export async function fetchLeaderboard() {
         };
     });
 
+    // Sort by total score
     return [res.sort((a, b) => b.total - a.total), errs];
-}
-
-export async function fetchPacks() {
-    try {
-        const packsResult = await fetch(`${dir}/_packs.json`);
-        const packs = await packsResult.json();
-        const list = await fetchList();
-
-        if (!list) return null;
-
-        return packs.map((pack) => {
-            const packLevels = (pack.levels || []).map((path) => {
-                const foundIndex = list.findIndex(([level]) => level?.path === path);
-                const levelData = list[foundIndex]?.[0];
-                return {
-                    path,
-                    name: levelData?.name || path,
-                    rank: foundIndex !== -1 ? foundIndex + 1 : null,
-                };
-            });
-
-            return {
-                ...pack,
-                levels: packLevels,
-            };
-        });
-    } catch {
-        console.error('Failed to load packs.');
-        return null;
-    }
 }
