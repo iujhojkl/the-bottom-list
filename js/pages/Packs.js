@@ -26,23 +26,23 @@ export default {
                         <div class="pack-badge"></div>
                         <div class="pack-info">
                             <h3>{{ pack.name }}</h3>
-                            <p>{{ pack.levels.length }} Levels</p>
+                            <p>{{ pack.levels ? pack.levels.length : 0 }} Levels</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="pack-details-container">
                     <div class="pack-details" v-if="currentPack">
-                        <div class="pack-header" :style="{ borderColor: currentPack.color || '#006D5B' }">
+                        <div class="pack-header" :style="{ borderLeftColor: currentPack.color || '#006D5B' }">
                             <h1>{{ currentPack.name }}</h1>
-                            <span class="pack-count">{{ currentPack.levels.length }} Levels Required</span>
+                            <span class="pack-count">{{ currentPack.levels ? currentPack.levels.length : 0 }} Levels Required</span>
                         </div>
 
-                        <h2>Required Levels</h2>
+                        <h2 class="section-title">Required Levels</h2>
                         <ul class="pack-levels-list">
-                            <li v-for="level in currentPack.levels" :key="level.path">
+                            <li v-for="level in currentPack.levels" :key="level.path" class="pack-level-item">
                                 <span class="rank" v-if="level.rank">#{{ level.rank }}</span>
-                                <span class="rank" v-else>Legacy</span>
+                                <span class="rank legacy" v-else>Legacy</span>
                                 <span class="level-name">{{ level.name }}</span>
                             </li>
                         </ul>
@@ -60,4 +60,4 @@ export default {
         this.packs = (await fetchPacks()) || [];
         this.loading = false;
     }
-}; // nuhhhhhhhhhhhhhh
+};
