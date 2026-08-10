@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Top 3 Pack",
+        "color": "#ff4444",
+        "levels": [
+            "Purgatory",
+            "Acidic",
+            "Budgetscapes"
+        ]
+    },
+    {
+        "name": "Lemon Pack",
+        "color": "#006D5B",
+        "levels": [
+            "polyester",
+            "fallendown"
+        ]
+    }
+]
