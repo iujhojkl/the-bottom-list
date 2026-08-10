@@ -28,7 +28,7 @@ export default {
                             <p v-if="i + 1 <= 150" class="type-label-lg">#{{ i + 1 }}</p>
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
-                        <td class="level" :class="{ 'active': selected == i, 'error': !level }">
+                        <td class="level" :class="{ 'active': selected === i, 'error': !level }">
                             <button @click="selected = i">
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
                             </button>
@@ -41,10 +41,21 @@ export default {
                 <div class="level" v-if="level">
                     <div class="level-header">
                         <h1>{{ level.name }}</h1>
-                        <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
+                        <LevelAuthors 
+                            :author="level.author" 
+                            :creators="level.creators" 
+                            :verifier="level.verifier"
+                        ></LevelAuthors>
                     </div>
 
-                    <iframe class="video" id="videoframe" :src="video" frameborder="0" allowfullscreen></iframe>
+                    <iframe 
+                        v-if="video"
+                        class="video" 
+                        id="videoframe" 
+                        :src="video" 
+                        frameborder="0" 
+                        allowfullscreen
+                    ></iframe>
 
                     <ul class="stats">
                         <li>
@@ -53,7 +64,7 @@ export default {
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
-                            <p>{{ level.id }}</p>
+                            <p>{{ level.id || 'N/A' }}</p>
                         </li>
                         <li>
                             <div class="type-title-sm">Password</div>
@@ -62,12 +73,12 @@ export default {
                     </ul>
 
                     <h2>Records</h2>
-                    <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
+                    <p v-if="selected + 1 <= 75"><strong>{{ level.percentToQualify || 100 }}%</strong> or better to qualify</p>
                     <p v-else-if="selected + 1 <= 150"><strong>100%</strong> or better to qualify</p>
                     <p v-else>This level does not accept new records.</p>
 
-                    <table class="records">
-                        <tr v-for="record in level.records" class="record">
+                    <table class="records" v-if="level.records && level.records.length > 0">
+                        <tr v-for="(record, rIdx) in level.records" :key="rIdx" class="record">
                             <td class="percent">
                                 <p>{{ record.percent }}%</p>
                             </td>
@@ -91,21 +102,28 @@ export default {
             <div class="meta-container">
                 <div class="meta">
                     <div class="errors" v-show="errors.length > 0">
-                        <p class="error" v-for="error of errors">{{ error }}</p>
+                        <p class="error" v-for="(error, eIdx) of errors" :key="eIdx">{{ error }}</p>
                     </div>
+
                     <div class="og">
                         <p class="type-label-md">Website layout made by <a href="https://tsl.pages.dev/" target="_blank">TheShittyList</a></p>
                     </div>
-                    <template v-if="editors">
+
+                    <template v-if="editors && editors.length > 0">
                         <h3>List Editors</h3>
                         <ol class="editors">
-                            <li v-for="editor in editors">
-                                <img :src="\`/assets/\${roleIconMap[editor.role]}\${store.dark ? '-dark' : ''}.svg\`" :alt="editor.role">
+                            <li v-for="(editor, edIdx) in editors" :key="edIdx">
+                                <img 
+                                    v-if="roleIconMap[editor.role]"
+                                    :src="\`/assets/\${roleIconMap[editor.role]}\${store.dark ? '-dark' : ''}.svg\`" 
+                                    :alt="editor.role"
+                                >
                                 <a v-if="editor.link" class="type-label-lg link" target="_blank" :href="editor.link">{{ editor.name }}</a>
                                 <p v-else>{{ editor.name }}</p>
                             </li>
                         </ol>
                     </template>
+
                     <h3>Submission Requirements</h3>
                     <p>Achieved the record without using hacks (FPS bypass allowed up to 360fps)</p>
                     <p>Achieved on the level listed on site - check level ID before submitting</p>
@@ -126,15 +144,17 @@ export default {
         selected: 0,
         errors: [],
         roleIconMap,
-        store
+        store,
+        toggledShowcase: false
     }),
     computed: {
         level() {
             return this.list[this.selected]?.[0];
         },
         video() {
-            if (!this.level?.showcase) {
-                return embed(this.level?.verification);
+            if (!this.level) return null;
+            if (!this.level.showcase) {
+                return embed(this.level.verification);
             }
             return embed(
                 this.toggledShowcase
@@ -156,7 +176,7 @@ export default {
                 ...this.list
                     .filter(([_, err]) => err)
                     .map(([_, err]) => {
-                        return `Failed to load level. (${err}.json)`;
+                        return `Failed to load level (${err}.json)`;
                     })
             );
             if (!this.editors) {
