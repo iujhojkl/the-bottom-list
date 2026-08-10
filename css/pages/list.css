@@ -4,6 +4,7 @@
     --color-background-hover: #f4f4f5;
     --color-on-background-hover: #1c1b1f;
     --color-primary: #006D5B;
+    --color-primary-disabled: #1f213c;
     --color-on-primary: #ffffff;
     --color-error: #de0000;
     --color-on-error: #ffffff;
@@ -36,6 +37,40 @@ body {
     flex-direction: column;
 }
 
+/* Header Overrides */
+header {
+    background-color: #006D5B !important;
+    padding: 0.85rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header,
+header a,
+header a:visited,
+header a:link {
+    color: #ffffff !important;
+}
+
+header .button,
+header .button:visited,
+header .button:link {
+    background-color: #ffffff !important;
+    color: #006D5B !important;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+header .button:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+/* Page Layout */
 main.page-list {
     display: grid;
     grid-template-columns: minmax(18rem, 1fr) minmax(28rem, 2.5fr) minmax(18rem, 1fr);
@@ -59,6 +94,13 @@ main.page-list {
     padding-right: 0.5rem;
 }
 
+.page-list .meta-container {
+    padding-right: 0.5rem;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+/* Main Level Table */
 .page-list .list {
     width: 100%;
     border-collapse: separate;
@@ -114,6 +156,7 @@ main.page-list {
     opacity: 0.6;
 }
 
+/* Active Level View */
 .page-list .level-container .level {
     background: rgba(30, 30, 36, 0.75);
     backdrop-filter: blur(10px);
@@ -236,6 +279,7 @@ main.page-list {
     text-decoration: underline;
 }
 
+/* Sidebar / Meta Information */
 .page-list .meta {
     background: rgba(30, 30, 36, 0.75);
     backdrop-filter: blur(10px);
