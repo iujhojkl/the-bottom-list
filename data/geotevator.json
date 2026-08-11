@@ -1,0 +1,18 @@
+{
+    "id": 106715770,
+    "name": "geotevator",
+    "author": "ivovan7",
+    "creators": ["ivovan7"],
+    "verifier": "ivovan7",
+    "verification": "https://youtu.be/u31qwQUeGuM?si=KwlpZA2erPC-yeMh",
+    "percentToQualify": "100",
+    "password": "Free to Copy",
+    "records": [
+        {
+            "user": "STUBBY",
+            "link": "https://youtu.be/u31qwQUeGuM?si=KwlpZA2erPC-yeMh",
+            "percent": 100,
+            "hz": 240
+        }
+    ]
+}
