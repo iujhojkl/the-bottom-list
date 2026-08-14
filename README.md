@@ -34,4 +34,4 @@ What are some common reasons for the website not loading?
 - Scca (List Mod)
 - Lemon (Web Developer)
 - Inver5305 (Web Developer)
-- Template gotten from the Shitty List Template.
+- Template from https://github.com/TheShittyList/GDListTemplate
