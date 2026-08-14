@@ -1,7 +1,5 @@
 # Welcome to the Bottom List Official Website Repository!
 
----
-
 # FAQ
 
 The website isn't loading! What can I do?
@@ -35,6 +33,5 @@ What are some common reasons for the website not loading?
 - Ferret90 (Elder Mod)
 - Scca (List Mod)
 - Lemon (Web Developer)
-- Inver5395 (Web Developer)
-
+- Inver5305 (Web Developer)
 - Template gotten from the Shitty List Template.
