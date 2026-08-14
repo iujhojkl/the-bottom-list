@@ -10,19 +10,19 @@
         "link": "https://www.youtube.com/@Ferret90"
     },
     {
-        "role": "list mod",
+        "role": "helper",
         "name": "Scca",
         "link": "https://www.youtube.com/@scca_brent"
     },
     {
-        "role": "list mod",
+        "role": "helper",
         "name": "Fangrats",
         "link": "https://www.youtube.com/@lyporanfilms8294"
     },
     {
-        "role": "trial",
-        "name": "Trial List Helper",
-        "link": "https://www.youtube.com/@Prometheus_Alt"
+        "role": "helper",
+        "name": "Scope",
+        "link": "https://www.youtube.com/@mrbeast6000"
     },
     {
         "role": "dev",
